@@ -20,5 +20,11 @@ public:
 	virtual void UnHighlightActor() override;
 
 	AAuraEnemy();
+
+protected:
+
+	virtual void BeginPlay() override;
+
+	
 	
 };

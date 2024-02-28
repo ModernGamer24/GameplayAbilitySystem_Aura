@@ -2,10 +2,15 @@
 
 
 #include "AuraPlayerController.h"
+
+#include "AbilitySystemComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 #include "Aura/Aura.h"
 #include "Aura/Interaction/EnemyInterface.h"
+#include "Aura/PlayerState/AuraPlayerState.h"
+
+class AAuraPlayerState;
 
 AAuraPlayerController::AAuraPlayerController()
 {
@@ -46,6 +51,7 @@ void AAuraPlayerController::SetupInputComponent()
 
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAuraPlayerController::Move);
 }
+
 
 void AAuraPlayerController::Move(const FInputActionValue& InputValue)
 {

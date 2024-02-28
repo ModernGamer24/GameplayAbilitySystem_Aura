@@ -4,6 +4,8 @@
 #include "AuraEnemy.h"
 
 #include "Aura/Aura.h"
+#include "Aura/AbilitySystem/AuraAbilitySystemComponent.h"
+#include "Aura/AbilitySystem/AuraAttributeSet.h"
 
 void AAuraEnemy::HighlightActor()
 {
@@ -18,4 +20,12 @@ void AAuraEnemy::UnHighlightActor()
 {
 	GetMesh()->SetRenderCustomDepth(false);
 	Weapon->SetRenderCustomDepth(false);
+}
+
+AAuraEnemy::AAuraEnemy()
+{
+	AbilitySystemComponent = CreateDefaultSubobject<UAuraAbilitySystemComponent>("AbilitySystemComp");
+	AbilitySystemComponent->SetIsReplicated(true);
+
+	AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");
 }

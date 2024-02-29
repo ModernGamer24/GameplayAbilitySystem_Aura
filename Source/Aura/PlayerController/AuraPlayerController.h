@@ -32,6 +32,7 @@ protected:
 
 	virtual void SetupInputComponent() override;
 
+
 private:
 
 	UPROPERTY(EditAnywhere, Category="Input")
@@ -44,7 +45,7 @@ private:
 
 	void CursorTrace();
 
-	IEnemyInterface* LastActor;
-	IEnemyInterface* ThisActor;
+	TObjectPtr<IEnemyInterface> LastActor;
+	TObjectPtr<IEnemyInterface> ThisActor;
 	
 };

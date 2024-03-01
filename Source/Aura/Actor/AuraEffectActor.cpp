@@ -23,12 +23,12 @@ void AAuraEffectActor::BeginPlay()
 	
 }
 
-void AAuraEffectActor::ApplyEffectToTarget(AActor* Target, TSubclassOf<UGameplayEffect> GameplayEffectClass)
+void AAuraEffectActor::ApplyEffectToTarget(AActor* Victim, TSubclassOf<UGameplayEffect> GameplayEffectClass)
 {
-	IAbilitySystemInterface* Interface = Cast<IAbilitySystemInterface>(Target);
+	IAbilitySystemInterface* Interface = Cast<IAbilitySystemInterface>(Victim);
 	if (Interface)
 	{
-		UAbilitySystemComponent* TargetAbilitySystemComponent = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Target);
+		UAbilitySystemComponent* TargetAbilitySystemComponent = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Victim);
 		if (TargetAbilitySystemComponent)
 		{
 			check(GameplayEffectClass)

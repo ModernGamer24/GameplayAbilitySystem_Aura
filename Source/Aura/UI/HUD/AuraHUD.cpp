@@ -6,7 +6,6 @@
 #include "Aura/UI/Widget/AuraUserWidget.h"
 #include "Aura/UI/WidgetController/Overlay/OverlayWidgetController.h"
 #include "Blueprint/UserWidget.h"
-#include "Kismet/KismetMathLibrary.h"
 
 UOverlayWidgetController* AAuraHUD::GetOverlayWidgetController(const FWidgetControllerParams& WParams)
 {

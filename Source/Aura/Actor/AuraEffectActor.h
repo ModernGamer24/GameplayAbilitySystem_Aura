@@ -71,6 +71,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Applied Effects | Infinite", BlueprintReadOnly, meta=(EditCondition="InfiniteEffectApplicationPolicy != EEffectApplicationPolicy::DoNotApply"))
 	EEffectRemovalPolicy InfiniteEffectRemovalPolicy = EEffectRemovalPolicy::DoNotRemove;
 
+	UPROPERTY(EditAnywhere, Category="Applied Effects", BlueprintReadOnly)
+	float EffectLevel = 1.0f;
+
 private:
 
 	TMap<FActiveGameplayEffectHandle, UAbilitySystemComponent*> ActiveInfEffectHandles;

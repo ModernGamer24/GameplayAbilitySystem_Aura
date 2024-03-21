@@ -28,10 +28,16 @@ void UOverlayWidgetController::BindCallbackDependencies()
 	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->OnEffectApplied.AddLambda(
 		[this](const FGameplayTagContainer& AssetTags)
 		{
+			// Takes tag from ini
+			FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
 			for (const FGameplayTag& Tag : AssetTags)
 			{
-				FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
+				// Make a comparison between tags, if "Message.Potion" get match with "Message", return True, if "Message" will be compared to "Message.Potion", return False
+				const bool bMatches = Tag.MatchesTag(MessageTag);
+				if(!bMatches) continue;
 				
+				const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
+				MessageWidgetRowDelegate.Broadcast(*Row);
 			}
 		}
 	);

@@ -7,4 +7,6 @@ void UAuraUserWidget::SetWidgetController(UObject* NewController)
 {
 	WidgetController = NewController;
 	OnWidgetControllerSet();
+
+	UAnimSequence
 }
